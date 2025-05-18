@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-w7hs8q3#(b#i)8i&a(#gga_@zih03fzt*h-5&r^o%p66kp(@=s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -51,6 +50,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'madrasa_website.urls'
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://madinatululum.onrender.com"
+]
+
 
 TEMPLATES = [
     {
