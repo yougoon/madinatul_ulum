@@ -1,0 +1,346 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Madinatul Ulum Hifzul Quran Madrasah{% endblock %}</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231b5e20'><path d='M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z'/></svg>">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        :root {
+            --primary-color: #1b5e20;
+            --primary-dark: #0d4213;
+            --primary-light: #e8f5e9;
+            --secondary-color: #2e7d32;
+            --accent-color: #4caf50;
+            --light-color: #f8f9fa;
+            --dark-color: #263238;
+            --text-color: #37474f;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            font-family: 'Hind Siliguri', 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* White Navbar */
+        .navbar {
+            background-color: white;
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: var(--transition);
+            color: var(--dark-color) !important;
+            position: relative;
+            margin: 0 0.2rem;
+            border-radius: var(--border-radius);
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding-bottom: 2rem;
+        }
+
+        /* Compact Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0 1rem;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        .footer-heading {
+            color: white;
+            position: relative;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .footer-heading:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(3px);
+        }
+
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.85rem;
+        }
+
+        .contact-info i {
+            margin-right: 8px;
+            color: var(--accent-color);
+            min-width: 16px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            margin-top: 1.5rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+        }
+
+        /* Contact Form in Footer */
+        .footer-form input,
+        .footer-form textarea {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 0.85rem;
+            padding: 0.5rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-form input::placeholder,
+        .footer-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-form button {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand span {
+                font-size: 1rem;
+            }
+
+            .footer-col {
+                margin-bottom: 1.5rem;
+            }
+
+            footer {
+                padding: 1.5rem 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- White Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'images/navicon.jpg' %}" class="img-fluid me-2"
+                    style="max-height: 40px; width: auto;" alt="Madrasa Logo">
+                <span class="d-none d-md-inline">Madinatul Ulum Hifzul Quran Madrasah</span>
+                <span class="d-md-none">Madinatul Ulum Hifzul Quran Madrasah</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link {% if request.path == '/' %}active{% endif %}"
+                            href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.path == '/about/' %}active{% endif %}"
+                            href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.path == '/courses/' %}active{% endif %}"
+                            href="{% url 'courses' %}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.path == '/contact/' %}active{% endif %}"
+                            href="{% url 'contact' %}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.path == '/admission/' %}active{% endif %}"
+                            href="{% url 'admission' %}">Admission</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main class="container my-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Compact Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 footer-col">
+                    <h5 class="footer-heading">Madinatul Ulum</h5>
+                   
+                    
+
+   <form method="POST" action="{% url 'contact' %}" class="footer-form">
+    {% csrf_token %}
+                        <div class="mb-2">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-2">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-2">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="mb-2">
+                            <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success px-4">Send Message</button>
+                        </div>
+                    </form>
+                     
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-col">
+                    <h5 class="footer-heading">Quick Links</h5>
+                  <div style="display: flex;">
+                      <ul class="footer-links">
+                        <li><a href="{% url 'home' %}"><i class="fas fa-chevron-right me-1"></i>Home</a></li>
+                        <li><a href="{% url 'about' %}"><i class="fas fa-chevron-right me-1"></i>About Us</a></li>
+                        <li><a href="{% url 'courses' %}"><i class="fas fa-chevron-right me-1"></i>Courses</a></li>
+                        <li><a href="{% url 'admission' %}"><i class="fas fa-chevron-right me-1"></i>Admission</a></li>
+                    </ul>
+                 
+                  </div>
+                </div>
+
+                <div class="col-lg-5 col-md-12 footer-col">
+                    <h5 class="footer-heading">Contact us</h5>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> পূর্ব পদরদিয়া (বেপারী বাড়ী রোড), সাতারকুল, বাড্ডা,
+                            ঢাকা-২৯৪১</p>
+                        <p><i class="fas fa-phone-alt"></i> +880 1627-331904</p>
+                        <p><i class="fas fa-envelope"></i> madinatululumhifzulquran@gmail.com</p>
+                        <p><i class="fas fa-clock"></i> Sat-Thu: 8:00 AM - 5:00 PM</p>
+                    </div>
+
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/MadinatulUlumHifzulQuranMadrasah" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/8801627331904" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <img src="{% static 'images/image.png' %}" class=""
+                            style="max-height: 30px; width: auto;" alt="Madrasa Logo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center copyright">
+                    <p class="m-0">&copy; {{ now|date:"Y" }} Madinatul Ulum Hifzul Quran Madrasah. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

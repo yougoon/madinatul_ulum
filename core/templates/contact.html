@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact Us - Madinatul Ulum Hifzul Quran Madrasah{% endblock %}
+
+{% block content %}
+
+<!-- Contact Section -->
+<section class="container mb-5">
+    <div class="text-center mb-5">
+        <h2 class="text-success mb-3">Contact Information</h2>
+        <p class="text-muted">Get in touch with us for any inquiries or visit our campus</p>
+    </div>
+    
+    <div class="row g-4">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <h3 class="text-center mb-4 text-success">Our Location</h3>
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="icon-circle bg-success bg-opacity-10 text-success me-3">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-success">Address</h5>
+                            <p class="mb-0">পূর্ব পদরদিয়া (বেপারী বাড়ী রোড), সাতারকুল, বাড্ডা, ঢাকা-২৯৪১</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="icon-circle bg-success bg-opacity-10 text-success me-3">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-success">Phone</h5>
+                            <p class="mb-0">+880 1627-331904 (Office)</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="icon-circle bg-success bg-opacity-10 text-success me-3">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-success">Email</h5>
+                            <p class="mb-0">madinatululumhifzulquran@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <div class="icon-circle bg-success bg-opacity-10 text-success me-3">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-success">Facebook</h5>
+                            <a href="https://www.facebook.com/MadinatulUlumHifzulQuranMadrasah" target="_blank" class="text-decoration-none">
+                                Visit Our Page
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-0">
+                    <h3 class="text-center mb-4 text-success p-4 pb-0">Location Map</h3>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.921056394852!2d90.43857331543146!3d23.788173393048226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7d07e6aaf09%3A0x92d0137b5ad6a052!2z4Ka44Ka_4KaV4Ka-4KaJ4Kao4Ka_4KaIOCmleCnjeCmrOCmvuCmn-Cnh-CmsOCnjeCmsOCmvuCmleCmsQ!5e0!3m2!1sen!2sbd!4v1716040288239!5m2!1sen!2sbd" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .icon-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .contact-card {
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    a {
+        color: var(--secondary-color);
+        transition: color 0.3s;
+    }
+    
+    a:hover {
+        color: var(--primary-color);
+    }
+    
+    @media (max-width: 768px) {
+        .icon-circle {
+            width: 36px;
+            height: 36px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+{% endblock %}

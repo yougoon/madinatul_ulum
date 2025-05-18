@@ -1,0 +1,501 @@
+{% extends 'base.html' %}
+{% block title %}Home - Madinatul Ulum Hifzul Quran Madrasah{% endblock %}
+{% load static %}
+{% block content %}
+
+<style>
+
+ 
+    .hero-section {
+        background: linear-gradient(135deg, rgba(27, 94, 32, 0.9) 0%, rgba(46, 125, 50, 0.95) 100%);
+        position: relative;
+        overflow: hidden;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        padding: 2rem 0;
+    }
+    
+    .arabic-watermark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 30vw;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 0.05);
+        font-family: 'Traditional Arabic', 'Amiri', 'Arial', sans-serif;
+        white-space: nowrap;
+        z-index: 0;
+        pointer-events: none;
+    }
+    
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+    
+    @media (max-width: 768px) {
+        .hero-section h1 {
+            font-size: 2.5rem !important;
+        }
+        .arabic-watermark {
+            font-size: 25vw;
+        }
+        .hero-section {
+            min-height: 60vh;
+        }
+    }
+    
+    .section-title {
+        position: relative;
+        margin-bottom: 3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-align: center;
+    }
+    
+    .section-title:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--accent-color);
+    }
+    
+    .card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: 100%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .card-title {
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    
+    .card-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--accent-color);
+    }
+    
+    .course-card {
+        border-left: 4px solid;
+        transition: all 0.3s;
+    }
+    
+    .course-card:hover {
+        border-left-width: 8px;
+    }
+    
+    .nurani {
+        border-left-color: #4285F4;
+    }
+    
+    .general {
+        border-left-color: #34A853;
+    }
+    
+    .pre-hifz {
+        border-left-color: #EA4335;
+    }
+    
+    .hifz {
+        border-left-color: #FBBC05;
+    }
+    
+    .one-hour {
+        border-left-color: #673AB7;
+    }
+    
+    .revision {
+        border-left-color: #FF5722;
+    }
+    
+    .video-container {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .contact-card {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .contact-icon {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-right: 10px;
+    }
+    
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1rem;
+        }
+
+      
+    }
+</style>
+
+<!-- Hero Section -->
+<!-- <section class="hero-section">
+    <div class="container">
+        <h1 class="hero-title">Madinatul Ulum Hifzul Quran Madrasah</h1>
+        <p class="hero-subtitle">Nurturing the next generation of Huffaz with excellence in Quran memorization, Islamic values, and academic education</p>
+        <a href="{% url 'admission' %}" class="btn btn-success btn-hero">Admission Now</a>
+        <a href="{% url 'courses' %}" class="btn btn-outline-light btn-hero ms-2">Our Courses</a>
+    </div>
+</section> -->
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row min-vh-80 align-items-center">
+            <div class="col-12 text-center text-white">
+                <h1 class="display-3 fw-bold mb-4 text-shadow">
+                    <span class="d-block">Madinatul Ulum</span>
+                    <span class="d-block">Hifzul Quran Madrasah</span>
+                </h1>
+                <p class="lead mb-5 text-shadow">
+                    نُورٌ عَلَىٰ نُورٍۢ ۩ "Light upon Light" (Quran 24:35)
+                </p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{% url 'admission' %}" class="btn btn-success btn-lg px-4 py-2 rounded-pill shadow">
+                        <i class="fas fa-user-graduate me-2"></i> Admission Now
+                    </a>
+                    <a href="{% url 'courses' %}" class="btn btn-outline-light btn-lg px-4 py-2 rounded-pill shadow">
+                        <i class="fas fa-book-quran me-2"></i> Our Courses
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Arabic Calligraphy Watermark -->
+    <div class="arabic-watermark">ٱلْقُرْآن</div>
+</section>
+
+
+
+
+<div class="container py-5">
+    <div class="row g-4">
+        <!-- Left: Carousel -->
+        <div class="col-lg-7">
+            <div id="activityCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    {% for i in "1234567" %}
+                    <button type="button" data-bs-target="#activityCarousel" 
+                            data-bs-slide-to="{{ forloop.counter0 }}"
+                            {% if forloop.first %}class="active"{% endif %}></button>
+                    {% endfor %}
+                </div>
+
+                <div class="carousel-inner rounded shadow-sm">
+                    {% for i in "1234567" %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{% static 'images/car_'|add:i|add:'.png' %}" 
+                             class="d-block w-100" 
+                             alt="Activity {{ i }}"
+                             style="height: 400px; object-fit: cover;">
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#activityCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#activityCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Right: Scrollable Card Text -->
+        <div class="col-lg-5">
+            <div class="card h-100 overflow-auto shadow-sm" style="max-height: 500px;">
+                <div class="card-body p-4">
+                                <h4 class="text-success mb-3"><i class="fas fa-mosque me-2"></i> আমাদের প্রতিষ্ঠান</h4>
+
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="bangla-text">
+                                <p>
+                                    <span class="highlight">মদিনাতুল উলুম</span> একটি নির্ভরযোগ্য দ্বীনি প্রতিষ্ঠান যার লক্ষ্য 
+                                    <span class="highlight">আল কুরআনুল কারীমের খেদমত</span>।
+                                    আমরা ইসলামিক শিক্ষা প্রদান করে থাকি। আমাদের প্রতিষ্ঠানে কুরআন, হাদীস, ফিকহ ও আরবি ভাষার উপর বিশেষভাবে গুরুত্ব দেওয়া হয়।
+                                </p>
+                                <p>
+                                    প্রতিষ্ঠালগ্ন থেকে আমরা কুরআন মুখস্থকরণ, তাজবীদ শিক্ষা এবং ইসলামিক মূল্যবোধের উপর বিশেষ জোর দিয়ে আসছি। আমাদের অভিজ্ঞ শিক্ষকমণ্ডলী প্রতিটি শিক্ষার্থীকে ব্যক্তিগতভাবে গড়ে তোলার চেষ্টা করেন।
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end row -->
+
+
+</div>
+<!-- About Section -->
+<section class="container mb-5">
+    <h2 class="section-title">About Our Madrasah</h2>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h5 class="card-title">Our Mission</h5>
+                    <p class="card-text">
+                        মদিনাতুল উলুম হিফজুল কুরআন মাদরাসা একটি আন্তর্জাতিক মানের হিফজ শিক্ষা প্রতিষ্ঠান। 
+                        আমাদের লক্ষ্য হলো আদর্শ হাফেজে কুরআন তৈরি করা যারা কুরআনের পাশাপাশি 
+                        চরিত্র, আমল ও আদর্শে পরিপূর্ণ হবে ইনশাআল্লাহ।
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="card-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h5 class="card-title">Why Choose Us</h5>
+                    <ul class="text-start">
+                        <li>Experienced & qualified Islamic teachers</li>
+                        <li>Strong focus on Akhlaq and discipline</li>
+                        <li>Safe and spiritually nurturing environment</li>
+                        <li>International standard curriculum</li>
+                        <li>Modern facilities with Islamic atmosphere</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Courses Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Our Courses</h2>
+    
+    <div class="row g-4">
+        <!-- Nurani Section -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 course-card nurani">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-child me-2"></i> নূরানী (কিন্ডারগার্টেন)</h5>
+                    <p class="card-text">
+                        শিশুদের প্রাথমিক ইসলামিক শিক্ষা ও কুরআনের হরফ শুদ্ধভাবে শেখানো হয়। আদর্শ ভিত্তি গঠনের লক্ষ্য।
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- General Section -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 course-card general">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-school me-2"></i> জেনারেল (নার্সারী - ৭ম শ্রেণি)</h5>
+                    <p class="card-text">
+                        একাডেমিক বিষয়সমূহের পাশাপাশি ইসলামিক শিক্ষা দিয়ে ছাত্রদের পূর্ণাঙ্গ মানুষ হিসেবে গড়ে তোলা হয়।
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pre-Hifz Section -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 course-card pre-hifz">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-book-quran me-2"></i> প্রি-হিফজ</h5>
+                    <p class="card-text">
+                        হিফজের পূর্ব প্রস্তুতি হিসেবে কুরআন শুদ্ধ করে পড়া, মুখস্থ করার ক্ষমতা বাড়ানো ইত্যাদি শেখানো হয়।
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- International Hifz Section -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 course-card hifz">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-globe me-2"></i> আন্তর্জাতিক হিফজুল কুরআন</h5>
+                    <p class="card-text">
+                        দ্রুত ও মানসম্মতভাবে হিফজ সম্পন্ন করা হয় আন্তর্জাতিক স্ট্যান্ডার্ড ও অভিজ্ঞ শিক্ষকদের মাধ্যমে।
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- One Hour Madrasa -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 course-card one-hour">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-clock me-2"></i> ১ ঘন্টার মাদরাসা</h5>
+                    <p class="card-text">
+                        কর্মজীবী, স্টুডেন্ট বা ব্যস্ত মানুষদের জন্য প্রতিদিন এক ঘণ্টায় কুরআন শিক্ষা ও ইসলামিক জ্ঞান অর্জনের বিশেষ কোর্স।
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hifz Revision -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 course-card revision">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-undo me-2"></i> হিফজ রিভিশন বিভাগ</h5>
+                    <p class="card-text">
+                        যারা ইতোমধ্যে হিফজ সম্পন্ন করেছে কিন্তু ভুলে গেছে বা দুর্বল হয়েছে, তাদের জন্য রিভিশন ও পুনরায় মুখস্থ করানোর বিশেষ ব্যবস্থা।
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-4">
+        <a href="{% url 'courses' %}" class="btn btn-success">View All Courses</a>
+    </div>
+</section>
+
+<!-- Video Section -->
+<section class="container mb-5">
+    <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+            <div class="video-container ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/xYuLwtGYKtA?si=bsyYD4mVi96mMrGS" 
+                    title="YouTube video player" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card h-100 border-0">
+                <div class="card-body">
+                    <h3 class="card-title text-success">দ্বীনী ইলম অর্জনের গুরুত্ব</h3>
+                    <div class="bangla-text">
+                        <p class="card-text">
+                            ইসলামী জ্ঞান অর্জন প্রতিটি মুসলমানের জন্য ফরজ।<p>
+                                 রাসূলুল্লাহ (সা.) বলেছেন, 
+                            <em>"জ্ঞান অর্জন করা প্রতিটি মুসলিম নর-নারীর উপর ফরজ।"</em> (ইবনে মাজাহ)
+                        </p>
+                            </p>
+                        <p>
+                            আমাদের মাদ্রাসায় কুরআন-সুন্নাহভিত্তিক বিশুদ্ধ দ্বীনী শিক্ষা প্রদান করা হয়। 
+                            এখানে শিক্ষার্থীরা শুধু মুখস্থই করে না, বরং আমল ও চরিত্র গঠনের উপর বিশেষ গুরুত্ব দেওয়া হয়।
+                        </p>
+                    </div>
+                    <div class="d-flex align-items-center mt-4">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section class="container mb-5">
+    <div class="row">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="contact-card h-100">
+                <h3 class="text-center mb-4 text-success">Contact Information</h3>
+                <div class="d-flex align-items-start mb-3">
+                    <i class="contact-icon fas fa-map-marker-alt"></i>
+                    <div>
+                        <h5>Address</h5>
+                        <p>পূর্ব পদরদিয়া (বেপারী বাড়ী রোড), সাতারকুল, বাড্ডা, ঢাকা-২৯৪১</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-start mb-3">
+                    <i class="contact-icon fas fa-phone-alt"></i>
+                    <div>
+                        <h5>Phone</h5>
+                        <p>+880 1627-331904 (Office)</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-start mb-3">
+                    <i class="contact-icon fas fa-envelope"></i>
+                    <div>
+                        <h5>Email</h5>
+                        <p>madinatululumhifzulquran@gmail.com</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-start">
+                    <i class="contact-icon fab fa-facebook"></i>
+                    <div>
+                        <h5>Facebook</h5>
+                        <a href="https://www.facebook.com/MadinatulUlumHifzulQuranMadrasah" target="_blank">Visit Our Page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="text-center mb-4 text-success">Google Maps</h3>
+                    <!-- <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success px-4">Send Message</button>
+                        </div>
+                    </form> -->
+             <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.921056394852!2d90.43857331543146!3d23.788173393048226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7d07e6aaf09%3A0x92d0137b5ad6a052!2z4Ka44Ka_4KaV4Ka-4KaJ4Kao4Ka_4KaIOCmleCnjeCmrOCmvuCmn-Cnh-CmsOCnjeCmsOCmvuCmleCmsQ!5e0!3m2!1sen!2sbd!4v1716040288239!5m2!1sen!2sbd" 
+                    width="100%" 
+                    height="80%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="mb-4">Ready to Enroll Your Child?</h2>
+        <p class="mb-4">Give your child the gift of Quranic education in a nurturing Islamic environment.</p>
+        <a href="{% url 'admission' %}" class="btn btn-success btn-lg px-4 me-2">Admission Now</a>
+        <a href="{% url 'contact' %}" class="btn btn-outline-success btn-lg px-4">Contact Us</a>
+    </div>
+</section>
+
+{% endblock %}
